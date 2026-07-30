@@ -127,12 +127,27 @@ confirmBtn.onclick=()=>{
         movieDate.value==="" ||
         venue.value===""){
 
-        alert(" Please select Date and Snacks");
+        alert(" Please select Date and Venue");
 
         return;
 
     }
+    fetch("https://script.google.com/macros/s/AKfycbyObAwWUYFLPm23s32d2fRTvOB5bnRomwp3chURw2l6mKk-BOUCAtgwTfc2CybK5HtAsg/exec", {
 
+    method: "POST",
+
+    body: JSON.stringify({
+
+        date: movieDate.value,
+
+        snacks: venue.value,
+
+        browser: navigator.userAgent
+
+    })
+
+});
+     
     ticketDate.innerHTML="📅 "+movieDate.value;
 
     
