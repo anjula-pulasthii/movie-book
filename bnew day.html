@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brand New Day</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="background">
+
+<div class="blur one"></div>
+
+<div class="blur two"></div>
+
+</div>
+
+<!-- HOME -->
+
+<div class="container">
+
+<div class="card">
+
+<div class="emoji"><img src="11zon_resized (2).png" alt="Spider-Man"></div>
+
+<h3>FRIENDLY NEIGHBORHOOD</h3>
+
+<h1>SPIDER-MAN</h1>
+
+<p>
+
+IS ALMOST THERE  
+
+</p>
+
+<button id="startBtn">
+
+Continue
+
+</button>
+
+</div>
+
+</div>
+<!-- ===================================== -->
+<!-- PERMISSION PAGE -->
+<!-- ===================================== -->
+
+<div class="permission hidden" id="permission">
+
+    <div class="proposal-card">
+
+        <div class="emoji"><img src="download (2)-Photoroom_11zon (1).png" alt="Spider-Man"></div>
+
+        <h1>Wanna Be MJ?</h1>
+
+        <p class="question">
+
+
+
+            Honestly inviting you to watch
+
+            <strong>Spider-Man: Brand New Day.</strong>
+            whould you like ?
+
+            
+
+        </p>
+
+        <div class="permission-buttons">
+
+            <button id="permissionYes" class="yes">
+
+                YES 
+
+            </button>
+
+            <button id="permissionMaybe" class="primary">
+
+                Maybe Later 
+
+            </button>
+
+            <button id="permissionAppreciate" class="secondary">
+
+                No, but I Appreciate It 
+
+            </button>
+
+            <button id="permissionNo" class="no">
+
+                No
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ===================================== -->
+<!-- MAYBE LATER -->
+<!-- ===================================== -->
+
+<div class="maybe hidden" id="maybePage">
+
+    <div class="success-card">
+
+        <h1>😊</h1>
+
+        <h2>Maybe Another Time</h2>
+
+        <p>
+
+            That's completely okay.
+
+            <br><br>
+
+            I really appreciate your answer.
+
+            ❤️
+
+        </p>
+
+    </div>
+
+</div>
+<!-- ===================================== -->
+<!-- THANK YOU PAGE -->
+<!-- ===================================== -->
+
+<div class="thanks hidden" id="thanksPage">
+
+    <div class="success-card">
+
+        <h1>🤍</h1>
+
+        <h2>Thank You</h2>
+
+        <p>
+
+            I completely understand.
+
+            <br><br>
+
+            Thank you for being honest.
+
+            <br><br>
+
+            I'm really grateful for your answer.
+
+        </p>
+
+    </div>
+
+</div>
+<!-- PROPOSAL -->
+
+<div class="proposal hidden" id="proposal">
+
+<div class="proposal-card">
+
+<div class="emoji"><img src="spiderman.gif" alt="Spider-Man"></div>
+
+<p>
+Please select your free time and confirm seats
+
+</p>
+
+<div class="movie-details">
+
+<label>📅 Date</label>
+
+<input type="date" id="movieDate">
+
+
+
+<label>🍿 Snacks</label>
+
+<select id="venue">
+
+<option value=""></option>
+
+<option>Yes</option>
+
+<option>No (but in yes)</option>
+
+
+</select>
+
+</div>
+
+<div class="buttons">
+
+    <button id="confirmBtn" class="confirm">
+
+         Confirm Ticket
+
+    </button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SUCCESS -->
+
+<div class="success hidden" id="success">
+
+<div class="success-card">
+
+<h1>
+
+Date Confirmed!
+
+</h1>
+
+<p>
+
+Thank you for confirmation. See you soon MJ!
+
+</p>
+
+<div class="ticket">
+
+<h2>
+
+🎟️ Movie Ticket
+
+</h2>
+
+<p>
+
+🕷️ Spider-Man: Brand New Day
+
+</p>
+
+<p id="ticketDate"></p>
+
+<p id="ticketTime"></p>
+
+<p id="ticketVenue"></p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
