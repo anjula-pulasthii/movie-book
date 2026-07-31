@@ -118,7 +118,7 @@ permissionNo.addEventListener("click",(e)=>{
 // =====================================
 function saveResponse(response, date = "", snacks = "") {
 
-    fetch("https://script.google.com/macros/s/AKfycbyObAwWUYFLPm23s32d2fRTvOB5bnRomwp3chURw2l6mKk-BOUCAtgwTfc2CybK5HtAsg/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwbFE11bwQQwX3DEQIVcRtVQhe62RXrnwYA5iSR3o6EGDhuOJYbrGXbJI9USSoBh-kUwQ/exec", {
         method: "POST",
         body: JSON.stringify({
             response: response,
@@ -156,7 +156,7 @@ confirmBtn.onclick = () => {
 
     }
 
-    fetch("https://script.google.com/macros/s/AKfycbyObAwWUYFLPm23s32d2fRTvOB5bnRomwp3chURw2l6mKk-BOUCAtgwTfc2CybK5HtAsg/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwbFE11bwQQwX3DEQIVcRtVQhe62RXrnwYA5iSR3o6EGDhuOJYbrGXbJI9USSoBh-kUwQ/exec", {
 
         method: "POST",
 
