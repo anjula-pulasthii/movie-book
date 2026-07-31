@@ -73,6 +73,7 @@ permissionYes.onclick = () => {
 
 permissionMaybe.onclick = () => {
 
+    saveResponse("Maybe Later");
     permission.classList.add("hidden");
     maybePage.classList.remove("hidden");
 
@@ -82,6 +83,7 @@ permissionMaybe.onclick = () => {
 
 permissionAppreciate.onclick = () => {
 
+    saveResponse("No but Appreciate");
     permission.classList.add("hidden");
     thanksPage.classList.remove("hidden");
 
@@ -114,7 +116,30 @@ permissionNo.addEventListener("click",(e)=>{
 // =====================================
 // MOVIE PAGE NO BUTTON
 // =====================================
+function saveResponse(response, date = "", snacks = "") {
 
+    fetch("https://script.google.com/macros/s/AKfycbyObAwWUYFLPm23s32d2fRTvOB5bnRomwp3chURw2l6mKk-BOUCAtgwTfc2CybK5HtAsg/exec", {
+
+        method: "POST",
+
+        body: JSON.stringify({
+
+            response: response,
+
+            date: date,
+
+            snacks: snacks,
+
+            browser: navigator.userAgent
+
+        })
+
+    })
+    .then(res => res.text())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+
+}
 
 
 // =====================================
@@ -132,21 +157,15 @@ confirmBtn.onclick=()=>{
         return;
 
     }
-    fetch("https://script.google.com/macros/s/AKfycbyObAwWUYFLPm23s32d2fRTvOB5bnRomwp3chURw2l6mKk-BOUCAtgwTfc2CybK5HtAsg/exec", {
+saveResponse(
 
-    method: "POST",
+    "Yes",
 
-    body: JSON.stringify({
+    movieDate.value,
 
-        date: movieDate.value,
+    venue.value
 
-        snacks: venue.value,
-
-        browser: navigator.userAgent
-
-    })
-
-});
+);
      
     ticketDate.innerHTML="📅 "+movieDate.value;
 
