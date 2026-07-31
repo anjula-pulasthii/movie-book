@@ -119,89 +119,87 @@ permissionNo.addEventListener("click",(e)=>{
 function saveResponse(response, date = "", snacks = "") {
 
     fetch("https://script.google.com/macros/s/AKfycbyObAwWUYFLPm23s32d2fRTvOB5bnRomwp3chURw2l6mKk-BOUCAtgwTfc2CybK5HtAsg/exec", {
+        method: "POST",
+        body: JSON.stringify({
+            response: response,
+            date: date,
+            snacks: snacks,
+            browser: navigator.userAgent
+        })
+    })
+    .then(response => {
+        console.log("Status:", response.status);
+        return response.text();
+    })
+    .then(data => {
+        console.log("Response:", data);
+    })
+    .catch(error => {
+        console.error("Fetch Error:", error);
+    });
+
+}
+
+// =====================================
+// MOVIE YES
+// =====================================
+
+confirmBtn.onclick = () => {
+
+    if (
+        movieDate.value === "" ||
+        venue.value === ""
+    ) {
+
+        alert("Please select Date and Snacks");
+        return;
+
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbyObAwWUYFLPm23s32d2fRTvOB5bnRomwp3chURw2l6mKk-BOUCAtgwTfc2CybK5HtAsg/exec", {
 
         method: "POST",
 
         body: JSON.stringify({
 
-            response: response,
+            response: "Yes",
 
-            date: date,
+            date: movieDate.value,
 
-            snacks: snacks,
+            snacks: venue.value,
 
             browser: navigator.userAgent
 
         })
 
     })
-    .then(res => res.text())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
 
-}
+    .then(response => response.text())
 
+    .then(data => {
 
-// =====================================
-// MOVIE YES
-// =====================================
+        console.log(data);
 
-confirmBtn.onclick=()=>{
+        ticketDate.innerHTML = "📅 " + movieDate.value;
+        ticketVenue.innerHTML = "🍿 " + venue.value;
 
-    if(
-        movieDate.value==="" ||
-        venue.value===""){
+        proposal.classList.add("hidden");
+        success.classList.remove("hidden");
 
-        alert(" Please select Date and Venue");
+        celebrate();
+        floatingHearts();
 
-        return;
+    })
 
-    }
-saveResponse(
+    .catch(error => {
 
-    "Yes",
+        console.error(error);
 
-    movieDate.value,
-
-    venue.value
-
-);
-     
-    ticketDate.innerHTML="📅 "+movieDate.value;
-
-    
-    ticketVenue.innerHTML="🍿 "+venue.value;
-
-    proposal.classList.add("hidden");
-
-    success.classList.remove("hidden");
-
-    celebrate();
-
-    floatingHearts();
-
-};
-
-// =====================================
-// CONFETTI
-// =====================================
-
-function celebrate(){
-
-    confetti({
-
-        particleCount:250,
-
-        spread:120,
-
-        startVelocity:45,
-
-        origin:{y:0.6}
+        alert("Couldn't save your response.");
 
     });
 
-}
-
+};
 // =====================================
 // HEARTS
 // =====================================
